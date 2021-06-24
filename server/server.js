@@ -85,7 +85,7 @@ function trackTickers(socket) {
 
 const socketServer = io(server, {
     cors: {
-      origin: `https://git.heroku.com/finance-test-server.git`,
+      origin: 'https://drew11.github.io/finance-test/',
       methods: ["GET", "POST"],
       credentials: true
     }
