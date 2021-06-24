@@ -85,9 +85,16 @@ function trackTickers(socket) {
 
 const socketServer = io(server, {
     cors: {
-      origin: 'https://drew11.github.io/finance-test/',
-      methods: ["GET", "POST"],
-      credentials: true
+     origins: ["*"],
+     handlePreflightRequest:(req, res)=>{
+        res.writeHead(200, {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, POST",
+          "Access-Control-Allow-Headers": "custom-header",
+          "Access-Control-Allow-Credentials": true
+        })
+       res.end();
+     }
     }
 });
 
