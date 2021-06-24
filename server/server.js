@@ -6,8 +6,7 @@ const app = express();
 const cors = require('cors');
 app.use(cors());
 const server = http.createServer(app);
-const io = require('socket.io')(server);
-
+const io = require('socket.io');
 require('events').EventEmitter.defaultMaxListeners = 0
 
 let FETCH_INTERVAL = 2000;
@@ -84,17 +83,19 @@ function trackTickers(socket) {
 
 }
 
-// const socketServer = io(server, {
-//   cors: {
-//     origin: "*",
-//   }
-// });
+const socketServer = io(server, {
+    cors: {
+      origin: `https://git.heroku.com/finance-test-server.git`,
+      methods: ["GET", "POST"],
+      credentials: true
+    }
+});
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-io.on('connection', (socket) => {
+socketServer.on('connection', (socket) => {
   socket.on('start', () => {
     trackTickers(socket);
   });
