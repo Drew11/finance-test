@@ -1,0 +1,22 @@
+.control-panel-tickers {
+    display: flex;
+    height: 100px;
+    justify-content: space-around;
+    align-items: center;
+   /*// flex-direction: column;*/
+}
+
+.stop-start-tickers-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px slategrey solid;
+    border-radius: 50px;
+    width: 40px;
+    height: 40px;
+    background: aliceblue;
+}
+
+.stop-start-tickers-button:hover {
+    box-shadow: cornflowerblue;
+}

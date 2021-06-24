@@ -1,0 +1,14 @@
+.ticker {
+    display: flex;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    box-align: center;
+    align-items: center;
+    border-top: 1px solid #dadce0;
+    min-height: max-content;
+}
+
+.ticker-name {
+    max-width: 200px;
+    min-width: 200px;
+}

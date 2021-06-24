@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100px;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.svg_icons {
+  transform: scale(1.8);
+  cursor: pointer;
+}
