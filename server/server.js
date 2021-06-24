@@ -1,8 +1,13 @@
 'use strict';
+
 const express = require('express');
 const http = require('http');
-const io = require('socket.io');
+const app = express();
 const cors = require('cors');
+app.use(cors());
+const server = http.createServer(app);
+const io = require('socket.io')(server);
+
 require('events').EventEmitter.defaultMaxListeners = 0
 
 let FETCH_INTERVAL = 2000;
@@ -79,21 +84,17 @@ function trackTickers(socket) {
 
 }
 
-const app = express();
-app.use(cors());
-const server = http.createServer(app);
-
-const socketServer = io(server, {
-  cors: {
-    origin: "*",
-  }
-});
+// const socketServer = io(server, {
+//   cors: {
+//     origin: "*",
+//   }
+// });
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
 
-socketServer.on('connection', (socket) => {
+io.on('connection', (socket) => {
   socket.on('start', () => {
     trackTickers(socket);
   });
