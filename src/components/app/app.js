@@ -6,7 +6,7 @@ import {io} from "socket.io-client";
 import {loadInitialDataSocket} from "../../actions/action";
 import ControlPanel from "../control-panel/control-panel";
 
-const socket = io("https://git.heroku.com/finance-test-server.git");
+const socket = io("https://finance-test-server.herokuapp.com/");
 
 function App() {
     const tickers = useSelector(state => state);
